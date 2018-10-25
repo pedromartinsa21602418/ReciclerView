@@ -10,6 +10,9 @@ public class MainActivity extends AppCompatActivity {
     RecyclerView recyclerView;
     LinearLayoutManager recyclerViewLinearLayoutManager;
 
+    RecyclerView.Adapter recyclerViewAdapter;
+    String[] linguagens = {"C", "Java", "Python"};
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -18,5 +21,8 @@ public class MainActivity extends AppCompatActivity {
         recyclerView = findViewById(R.id.recyclerViewLinguagens);
         recyclerViewLinearLayoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(recyclerViewLinearLayoutManager);
+
+        recyclerViewAdapter= new RecyclerViewAdapter(getApplicationContext(), linguagens);
+        recyclerView.setAdapter(recyclerViewAdapter);
     }
 }

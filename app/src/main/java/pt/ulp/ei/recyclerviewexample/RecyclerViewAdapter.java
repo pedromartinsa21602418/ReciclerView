@@ -10,13 +10,14 @@ import android.widget.TextView;
 
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder>{
 
-    String[] valores;
+    Linguagem[] valores;
     Context context;
     View view1;
     ViewHolder viewHolder1;
-    TextView textView;
+    TextView textViewDesignacao;
+    TextView textViewValor;
 
-    public RecyclerViewAdapter(Context context1,String[] listaValores){
+    public RecyclerViewAdapter(Context context1,Linguagem[] listaValores){
 
         valores = listaValores;
         context = context1;
@@ -24,13 +25,15 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
     public static class ViewHolder extends RecyclerView.ViewHolder{
 
-        public TextView textView;
+        public TextView textViewDesignacao;
+        public TextView textViewValor;
 
         public ViewHolder(View v){
 
             super(v);
 
-            textView = (TextView)v.findViewById(R.id.textview_item);
+            textViewDesignacao = (TextView)v.findViewById(R.id.textview_item);
+            textViewValor = (TextView)v.findViewById(R.id.textview_item2);
         }
     }
 
@@ -46,7 +49,9 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position){
-        holder.textView.setText(valores[position]);
+        holder.textViewDesignacao.setText(valores[position].getDesignacao());
+        holder.textViewValor.setText(valores[position].getValor());
+
     }
 
     @Override

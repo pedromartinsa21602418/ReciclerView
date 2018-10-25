@@ -11,18 +11,28 @@ public class MainActivity extends AppCompatActivity {
     LinearLayoutManager recyclerViewLinearLayoutManager;
 
     RecyclerView.Adapter recyclerViewAdapter;
-    String[] linguagens = {"C", "Java", "Python"};
+    String[] linguagens;
+    Linguagem[] v;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        linguagens = getResources().getStringArray(R.array.linguagens);
+
+        Linguagem[] v = new Linguagem[linguagens.length];
+        int i = 0;
+        for (String strLing : linguagens) {
+            i++;
+            v[i].setDesignacao(strLing);
+        }
+
         recyclerView = findViewById(R.id.recyclerViewLinguagens);
         recyclerViewLinearLayoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(recyclerViewLinearLayoutManager);
 
-        recyclerViewAdapter= new RecyclerViewAdapter(getApplicationContext(), linguagens);
+        recyclerViewAdapter= new RecyclerViewAdapter(getApplicationContext(), v);
         recyclerView.setAdapter(recyclerViewAdapter);
     }
 }

@@ -4,6 +4,10 @@ class Linguagem {
     String designacao;
     int valor;
 
+    public Linguagem() {
+
+    }
+
     public Linguagem(String designacao) {
         this.designacao = designacao;
         this.valor = 0;

@@ -17,8 +17,8 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
     public RecyclerViewAdapter(Context context1,Linguagem[] listaValores){
 
-        valores = listaValores;
-        context = context1;
+        this.valores = listaValores;
+        this.context = context1;
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder{
@@ -38,7 +38,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     @Override
     public RecyclerViewAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType){
 
-        view1 = LayoutInflater.from(context).inflate(R.layout.recycleview_items,parent,false);
+        view1 = LayoutInflater.from(this.context).inflate(R.layout.recycleview_items,parent,false);
 
         viewHolder1 = new ViewHolder(view1);
 
@@ -47,14 +47,14 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position){
-        holder.textViewDesignacao.setText(valores[position].getDesignacao());
-        holder.textViewValor.setText(valores[position].getValor());
+        holder.textViewDesignacao.setText(this.valores[position].getDesignacao());
+        holder.textViewValor.setText(""+this.valores[position].getValor());
 
     }
 
     @Override
     public int getItemCount(){
-        return valores.length;
+        return this.valores.length;
     }
 }
 

@@ -26,13 +26,14 @@ public class MainActivity extends AppCompatActivity {
         for (String strLing : linguagens) {
             i++;
             v[i].setDesignacao(strLing);
+            v[i].setValor(i);
         }
 
         recyclerView = findViewById(R.id.recyclerViewLinguagens);
         recyclerViewLinearLayoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(recyclerViewLinearLayoutManager);
 
-        recyclerViewAdapter= new RecyclerViewAdapter(getApplicationContext(), v);
+        recyclerViewAdapter = new RecyclerViewAdapter(getApplicationContext(), v);
         recyclerView.setAdapter(recyclerViewAdapter);
     }
 }

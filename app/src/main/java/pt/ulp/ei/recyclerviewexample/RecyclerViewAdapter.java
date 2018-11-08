@@ -14,8 +14,6 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     Context context;
     View view1;
     ViewHolder viewHolder1;
-    TextView textViewDesignacao;
-    TextView textViewValor;
 
     public RecyclerViewAdapter(Context context1,Linguagem[] listaValores){
 
@@ -32,8 +30,8 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
             super(v);
 
-            textViewDesignacao = (TextView)v.findViewById(R.id.textview_item);
-            textViewValor = (TextView)v.findViewById(R.id.textview_item2);
+            textViewDesignacao = v.findViewById(R.id.textview_item);
+            textViewValor = v.findViewById(R.id.textview_item2);
         }
     }
 
